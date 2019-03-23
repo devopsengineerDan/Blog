@@ -1,0 +1,31 @@
+{% extends 'main-layout.html' %}
+
+{% block content %}
+
+   <header>
+
+      <div class="quotes">
+         <h5>{{ quote }}</h5>
+         <p>- {{ quote_author }}</p>
+      </div>
+      
+   </header>
+
+   <footer>
+      <div class="subscribe">
+         
+         <form action="" method="post">
+            <p>Get updates on new blog posts:</p>  
+            {{ sub.hidden_tag() }}
+            <fieldset>
+               <div>
+                  {{ sub.email(class='sub-field') }}{{ sub.submit(class='sub-btn') }}
+               </div>
+            </fieldset>
+         </form>
+      </div>
+   </footer>
+
+{% endblock %}
+
+

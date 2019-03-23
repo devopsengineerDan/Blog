@@ -1,0 +1,50 @@
+{% extends 'main-layout.html' %}
+
+{% block content %}
+
+   <div class="container user-posts">
+      {% if posts %}
+         <div class='grid'>
+            {% for top in posts %}
+               <div class="post-card">
+                  <div class="card-content">
+                     <div class="author">
+                        <div class="avatar-tiny">
+                           <img src="{{ url_for('static', filename='avatars/'+top.author.avatar) }}" alt="">
+                        </div>
+                        <a href="{{ url_for('main.index') }}"></a>
+                        <div class='name'>
+                           {{ top.author.name }}
+                        </div>
+                        <div class='date to-right'>
+                           {{ top.time.strftime('%d %b, %Y')}}
+                        </div>
+                     </div>
+                     <a href="{{ url_for('main.read', article_link=top.link) }}">
+                        <div class="post-title">
+                           {{ top.title }}
+                        </div>                  
+                     </a>
+                  </div>  
+               </div>
+            {% endfor %}
+         </div>
+      {% endif %}
+      
+   </div>
+
+   <footer>
+      <div class="subscribe">
+         
+         <form action="" method="post">
+            <p>Get updates on new blog posts:</p>  
+            {{ sub.hidden_tag() }}
+            <fieldset>
+               <div>
+                  {{ sub.email(class='sub-field') }}{{ sub.submit(class='sub-btn') }}
+               </div>
+            </fieldset>
+         </form>
+      </div>
+   </footer>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'auth/layout.html' %}
+
+{% block content %}
+
+   <header>
+      <div class="form">
+         <form method="POST" action="">
+            {{ login.hidden_tag() }}
+            <fieldset class="fields">
+               <div>
+                  {{ login.username(class='input')}}
+               </div>
+               <div>
+                  {{ login.password(class='input')}}
+               </div>
+            </fieldset>
+            <div class='remember'>
+               {{ login.remember_me(class='radio')}}
+               {{ login.remember_me.label(class='label')}}
+            </div>
+            <div class="fwd-btn">
+               {{ login.submit(class='btn') }}<i class="fas fa-long-arrow-alt-right"></i>
+            </div>
+         </form>
+         <div class="extra">
+            <p>Don't have an account? <a href="{{ url_for('auth.signup')}}">Sign Up</a></p>
+         </div>
+      </div>
+   </header>
+
+{% endblock %}

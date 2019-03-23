@@ -1,0 +1,36 @@
+{% extends 'auth/layout.html' %}
+
+{% block content %}
+
+   <header>
+      <div class="form">
+         <form method="POST" action="">
+            {{ signup.hidden_tag() }}
+            <fieldset>
+               <div>
+                  {{ signup.name(class='input-wide')}}
+               </div>
+               <div>
+                  {{ signup.username(class='input-wide')}}
+               </div>
+               <div>
+                  {{ signup.email(class='input-wide')}}
+               </div>
+               <div>
+                  {{ signup.password(class='input-wide')}}
+               </div>
+               <div>
+                  {{ signup.confirm_password(class='input-wide')}}
+               </div>
+            </fieldset>
+            <div class='fwd-btn'>
+               {{ signup.submit(class='btn') }}<i class="fas fa-long-arrow-alt-right"></i>
+            </div>
+         </form>
+         <div class="extra">
+            <p>Have an account? <a href="{{ url_for('auth.login')}}">Log In</a></p>
+         </div>
+      </div>
+   </header>
+
+{% endblock %}

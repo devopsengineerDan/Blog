@@ -1,0 +1,29 @@
+{% extends 'main-layout.html' %}
+
+{% block content %}
+   <section>
+      <div class="new-post">
+         <form action="" method="post">
+            {{ post.hidden_tag() }}
+            
+            <fieldset>
+               <div>
+                  {{ post.title(class='title-field') }}
+               </div>
+               <div class='upload'>
+                  {{ post.picture(class='image-field')}}
+               </div>
+               <div>
+                  {{ post.content(class='content-field') }}
+               </div>
+            </fieldset>
+            <div>
+               {{ post.submit(class='publish')}}
+            </div>
+            {{simplemde.load}}
+         </form>
+      </div>
+   </section>
+
+
+{% endblock %}

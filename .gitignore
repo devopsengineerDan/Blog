@@ -1,0 +1,7 @@
+# Folders to ingore
+virtual/
+.vscode/
+__pycache__
+
+# Files to ignore
+start.sh

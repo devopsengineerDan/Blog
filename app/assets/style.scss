@@ -1,0 +1,575 @@
+$font: 'Montserrat', sans-serif;
+$page-margins: 2% 2.5%;
+
+// color scheme:
+
+$main_dark: #231942;
+$semi_dark: #5E548E;
+$light: #9F86C0;
+$darker: #121515;
+$danger: #FF5C72;
+
+// mixins
+@mixin fonts($color: $main_dark,$weight: 500,$size: 15px,$family: $font) {
+   font-family: $family;
+   color: $color;
+   font-weight: $weight;
+   font-size: $size;
+}
+
+body {
+   margin: 0;
+   padding: 0;
+   font-family: $font
+}
+
+a {
+   text-decoration: none;
+   outline: none;
+}
+
+nav {
+   margin: $page-margins;
+   box-sizing: border-box;
+   height: 40px;
+
+   div {
+      display: inline-block;
+   }
+}
+
+.to-right {
+   float: right;
+}
+
+.to-left {
+   float: left;
+}
+
+.menu {
+   box-sizing: border-box;
+   height: 40px;
+   a {
+      display: inline-block;
+   }
+
+   .user-link {
+      box-sizing: border-box;
+      p,div{
+         display: inline-block;
+      }
+
+      p {
+         padding: 10px 0;
+         @include fonts($main_dark,800,14px);
+      }
+   }
+}
+
+.auth-menu {
+   box-sizing: border-box;
+   height: 40px;
+   a {
+      display: inline-block;
+   }
+
+   .user-link {
+      margin-left: 4px;
+      box-sizing: border-box;
+      p,div{
+         display: inline-block;
+      }
+
+      p {
+         padding: 10px 0;
+         @include fonts($semi_dark,600,13px);
+      }
+   }
+}
+
+.avatar-tiny {
+   width: 20px;
+   height: 20px;
+   overflow: hidden;
+   border-radius: 50%;
+   img {
+      width: 100%;
+   }
+}
+
+.menu-btn {
+   cursor: pointer;
+   background-color: transparent;
+   @include fonts($semi_dark,600,14px);
+   border: 1px solid $semi_dark;
+   padding: 6px 10px;
+   
+   i {
+      padding-right: 4px;
+   }
+
+   &:hover {
+      color: #fff;
+      background-color: $semi_dark;
+      box-shadow: 1px 1px 4px 1px rgba($light,0.5);
+   }
+}
+
+.logo {
+   width: 40px;
+   height: 40px;
+
+   img {
+      width: 100%;
+   }
+}
+
+header {
+   width: 95%;
+   margin: $page-margins;
+}
+
+section {
+   width: 95%;
+   margin: $page-margins;
+}
+
+.new-post {
+   margin: 2% 0;
+   .title-field{
+      padding: 6px 10px;
+      height: 40px;
+      width: 60%;
+      @include fonts($main_dark,700,30px);
+      &::placeholder{
+         @include fonts($light,700,40px);
+      }
+   }
+
+   textarea {
+      margin: 2% 0;
+      box-sizing: border-box;
+      padding: 6px 10px;
+      height: 60vh;
+      width: 100%;
+      @include fonts($semi_dark,500,14px);
+      &::placeholder {
+         @include fonts($light,600,20px);
+      }
+   }
+}
+
+.publish {
+   background-color: $semi_dark;
+   border: none;
+   cursor: pointer;
+   @include fonts(#fff,700,13px);
+   width: 9%;
+   margin: 0 auto;
+
+   i,.btn {
+      font-size: 14px;
+      padding-left: 2px;
+      &:hover {
+         padding-left: 3px;
+         font-size: 15px;
+      }
+   }
+}
+
+.form {
+   width: 80%;
+   margin: 0 auto;
+   text-align: center;
+
+   .btn {
+      margin: 1% auto;
+   }
+}
+
+.upload {
+   display: block;
+   label {
+      @include fonts($semi_dark,600,14px)
+   }
+   input {
+      padding: 6px 10px;
+      &::placeholder{
+         @include fonts($light,700,40px);
+      }
+   }
+}
+
+fieldset {
+   width: 100%;
+   margin: 0 auto;
+   padding: 0;
+   border: none;
+
+   input {
+      margin: 0.5% 0;
+      width: 30%;
+      border: none;  
+      border-bottom: 1px solid rgba($semi_dark,0.5);
+      padding: 8px 10px;
+      @include fonts($semi_dark,500,13px);
+      &::placeholder {
+         @include fonts($light,500,12px);
+       }
+   }
+}
+
+.remember {
+   margin: 0.9% 0;
+   @include fonts($semi_dark,600,14px);
+}
+
+.fields {
+   margin: 0;
+   padding: 0;
+}
+
+.btn {
+   cursor: pointer;
+   background-color: transparent;
+   border: none;
+   padding: 6px 8px;
+   @include fonts($semi_dark,700,13px)
+}
+
+.fwd-btn {
+   cursor: pointer;
+   @include fonts($semi_dark,700,13px);
+   border-bottom: 2px solid $semi_dark;
+   width: 9%;
+   margin: 0 auto;
+
+   i,.btn {
+      font-size: 14px;
+      padding-left: 2px;
+      &:hover {
+         padding-left: 3px;
+         font-size: 15px;
+      }
+   }
+}
+
+.extra {
+   margin-top: 3%;
+   @include fonts($semi_dark,600,13px);
+   p {
+      a {
+         @include fonts($main_dark,700,13px); 
+      }
+   }
+
+}
+
+
+.top-blog {
+   width: 40%;
+   margin: 10% 0;
+   .author {
+      height: 50px;
+      overflow: hidden;
+      box-sizing: border-box;
+      @include fonts($semi_dark,700,14px);
+      .name {
+         box-sizing: border-box;
+         padding: 10px 0;
+      }
+      div {
+         display: inline-block;
+      }
+   }
+
+   .post-title {
+      margin: 1.5% 0;
+      @include fonts($main_dark,900,40px);
+   }
+}
+
+.grid {
+   display: grid;
+   grid-template-columns: repeat(3, auto);
+   grid-gap: 5% 4%;
+   grid-auto-flow: row;
+   margin-bottom: 2%;
+}
+
+.post-card {
+   width: 98%;
+
+   .card-content {
+      padding: 3% 2%;
+   }
+
+   .author {
+      .name {
+         @include fonts($semi_dark,600,13px);
+      }
+      .date {
+         @include fonts($semi_dark,600,13px);
+      }
+   }
+}
+
+.quotes {
+   width: 60%;
+   margin: 10% auto;
+   text-align: center;
+   line-height: 1.3;
+   h5 {
+      @include fonts($main_dark,700,32px);
+   }
+   p {
+      @include fonts($semi_dark,600,15px);
+   }
+}
+
+.avatar {
+   width: 100px;
+   height: 100px;
+   overflow: hidden;
+
+   img {
+      width: 100%;
+   }
+}
+
+.container {
+   margin: $page-margins;
+}
+
+.hidden {
+   display: none;
+}
+
+.comments {
+   width: 80%;
+   margin: 2% auto;
+   text-align: center;
+
+   textarea {
+      width: 40%;
+      height: 50px;
+      padding: 6px 10px;
+      &::placeholder {
+
+         @include fonts($light,500,13px);
+      }
+   }
+
+   &:before {
+      content: '';
+      display: block;
+      border: 0.5px solid rgba(#333, 0.05);
+      width: 100%;
+      margin: 10% auto 3% auto;
+   }
+}
+
+.blog-post {
+   width: 70%;
+   margin: 0 auto;
+   
+   .blog-meta {
+      width: 60%;
+      margin: 0 auto;
+   }
+
+   .title {
+      text-align: center;
+      clear: left;
+   }
+   .author-details {
+      margin-left: 3%;
+      div,h5{
+         display: inline-block;
+      }
+      text-align: center;
+      h5 {
+         @include fonts($semi_dark,700,14px);
+      }
+   }
+
+   .date {
+      text-align: right;
+      @include fonts(rgba($darker,0.5),600,14px);
+   }
+
+   h1 {
+      @include fonts($main_dark,800,40px);
+   }
+
+   .content {
+      @include fonts(rgba($darker,0.9),500,14px);
+   }
+
+}
+
+.comments-display {
+   width: 50%;
+   margin: 3% auto;
+
+   h5 {
+      text-align: right;
+      @include fonts($semi_dark,600,13px);
+   }
+
+   p {
+      text-align: left;
+      @include fonts(rgba($darker,0.7),500,13px);
+   }
+
+   &:after {
+      content: '';
+      display: block;
+      border: 0.5px solid rgba(#333, 0.05);
+      width: 100%;
+      margin: 6% auto 0 auto;
+   }
+}
+
+.user-posts {
+   display: block;
+   .author {
+      div {
+         display: inline-block;
+      }
+   }
+
+   .post-title {
+      @include fonts($main_dark,800,30px);
+   }
+}
+
+.profile-details {
+   box-sizing: border-box;
+   div {
+      display: inline-block;
+   }
+
+   .profile-meta {
+      box-sizing: border-box;
+      padding: auto 0;
+      margin: 0 1%;
+   }
+
+   h4 {
+      margin: 0 0 2% 0; 
+      @include fonts($main_dark,700,16px);
+   }
+
+   p {
+      @include fonts(rgba($light,0.7),600,13px);
+      margin: 2% 0 10% 0;
+   }
+
+   .update-btn {
+      cursor: pointer;
+      background: transparent;
+      margin: 2% 0 6% 0;
+      @include fonts($semi_dark,600,14px);
+      border: 2px solid $semi_dark;
+      padding: 6px 10px;
+      &:hover {
+         color: #fff;
+         background-color: $semi_dark;
+         box-shadow: 1px 1px 4px 1px rgba($light,0.5);
+      }
+   }
+
+   a {
+      cursor: pointer;
+   }
+}
+
+.post-action {
+   margin: 2% 0;
+   a button {
+      border: none;
+      cursor: pointer;
+      background: transparent;
+      @include fonts($semi_dark,600,13px);
+      .red {
+         &::hover {
+            color: $danger;
+         }
+      }
+   }
+}
+
+.modal {
+   display: none;
+   position: fixed; 
+   z-index: 1;
+   text-align: center;
+   width: 30%;
+   top: 10%;
+   left: 40%;
+   overflow: auto;
+   background-color: #fff;
+   box-shadow: 1px 1px 5px 2px rgba($darker,0.3);
+}
+
+.modal-content {
+   margin: $page-margins;
+   p {
+      @include fonts($semi_dark,600,14px);
+   }
+
+   button {
+      cursor: pointer;
+      margin-right: 0.7%;
+      border: none;
+      padding: 8px 18px;
+      @include fonts($semi_dark,600,14px);
+      &:hover {
+         box-shadow: 1px 1px 5px 2px rgba($darker,0.2);
+      }  
+   }
+
+   button.alert {
+      background-color: $danger;
+      @include fonts(#fff,600,14px);
+   }
+}
+
+.delete-btn {
+   cursor: pointer;
+   background-color: transparent;
+   border: none;
+   @include fonts($danger,600,12px);
+}
+
+
+footer {
+   width: 100%;
+   height: 20vh;
+   background-color: $main_dark;
+   margin-bottom: 0;
+   padding-bottom: 0;
+}
+
+.subscribe {
+   margin: $page-margins;
+
+   form {
+      padding-top: 1%;
+
+      p {
+         @include fonts($light,600,14px);
+      }
+
+      .sub-field {
+         width: 20%;
+      }
+
+      .sub-btn {
+         cursor: pointer;
+         width: 8%;
+         @include fonts($semi_dark,600,13px);
+      }
+   }
+}

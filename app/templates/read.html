@@ -1,0 +1,78 @@
+{% extends 'main-layout.html' %}
+
+{% block content %}
+
+   <div class="container blog-post">
+      <div class='blog-meta'>
+         <div class='author-details to-left'>
+            <div class="avatar-tiny">
+               <img src="{{ url_for('static', filename='avatars/'+post.author.avatar) }}" alt="">
+            </div>
+            <h5>{{ post.author.name }}</h5>
+         </div>
+         <div class='date to-right'>
+            <p>{{ post.time.strftime('%d %b, %Y')}}</p>
+         </div>
+         <div class='title'>
+            <h1>{{ post.title }}</h1>
+         </div>
+      </div>
+      <div class='content'>
+         {{ content|safe }}
+      </div>
+   </div>
+
+   <div class="container comments">
+      <p>----  Comments ----</p>
+      <form action="" method="post">
+         {{ comment.hidden_tag() }}
+         <fieldset>
+            {% if not status %}
+               <div>
+                  {{ comment.name(class='input-wide') }}
+               </div>
+            {% else %}
+               <div>
+                  {{ comment.name(value=user.name,class='hidden') }}
+               </div>
+            {% endif %}
+            <div>
+               {{ comment.comment(class='comment-field') }}
+               {{ comment.commented_on(value=post.id,class='hidden') }}
+            </div>
+         </fieldset>
+         <div class='fwd-btn'>
+            {{ comment.submit(class='btn') }}<i class="fas fa-long-arrow-alt-right"></i>
+         </div>
+      </form>
+
+      {% for comment in post.comments %}
+         <div class='comments-display'>
+            <p>{{ comment.comment }}</p>
+            {% if post.author.name == current_user.name %}
+               <a href="{{ url_for('main.delete_comment', id=comment.id) }}" class="to-left">
+                  <button class='delete-btn'><i class="fas fa-trash"></i>  Delete Comment</button>
+               </a>
+            {% endif %}
+            <h5>- {{ comment.name }}</h5>
+         </div>
+      {% endfor %}
+      
+   </div>
+
+   <footer>
+      <div class="subscribe">
+         
+         <form action="" method="post">
+            <p>Get updates on new blog posts:</p>  
+            {{ sub.hidden_tag() }}
+            <fieldset>
+               <div>
+                  {{ sub.email(class='sub-field') }}{{ sub.submit(class='sub-btn') }}
+               </div>
+            </fieldset>
+         </form>
+      </div>
+   </footer>
+
+{% endblock %}

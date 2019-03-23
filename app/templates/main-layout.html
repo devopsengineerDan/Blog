@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+   <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600,700,800,900" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+   <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+   {{ simplemde.css}}
+   {{ simplemde.js }}
+   <title>Blog | {{ title }}</title>
+
+</head>
+<body>
+
+   <nav>
+      <div class='logo'>
+         <a href="{{ url_for('main.index') }}">
+            <img src="{{ url_for('static', filename='images/blog_logo.png') }}" alt="">
+         </a>
+         
+      </div>
+
+      {% if status == False %}
+         <div class='menu to-right'>
+            <a href="{{url_for('main.posts')}}">
+               <button class='menu-btn'><i class="fas fa-pen-square"></i> Read</button>   
+            </a>
+            <a href="{{url_for('main.write')}}">
+               <button class='menu-btn'><i class="fas fa-pen-square"></i> Write</button>   
+            </a>
+         </div>         
+      {% else %}
+         <div class='auth-menu to-right'>
+            <a href="{{url_for('main.write')}}"><button class='menu-btn'><i class="fas fa-pen-square"></i> New Post</button></a>
+            <a href="{{url_for('main.profile')}}">
+               <div class='user-link'>
+                  <p>{{user.username}}</p> 
+                  <div class='avatar-tiny'><img src="{{ url_for('static', filename='avatars/'+user.avatar) }}" alt=""></div>
+               </div>
+            </a>
+         </div>
+      {% endif %}
+      
+   </nav>
+   
+   {% block content %}
+   {% endblock %}
+
+  <button id="read"></button>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
