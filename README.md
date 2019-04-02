@@ -1,6 +1,6 @@
 # Blog
 
-###### Authored by Michael Kipchumba
+###### Authored by Dan
 
 A blog app built using Flask.
 
@@ -50,8 +50,8 @@ You also need to install Flask and all its dependencies. Read about setting up f
 
 This app doesn't seem to have any bugs for now. If you happen to come across one, I will be happy to take a look at it. Contact Me on:
 
-- [Facebook](https://web.facebook.com/ItsMikeChumba/)
-- [Email](michaelchumba09@gmail.com)
+- [Facebook](https://web.facebook.com/Dan Moruri/)
+- [Email](dancunmanyinsait@gmail.com)
 
 ### License 
 
