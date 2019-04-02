@@ -57,7 +57,7 @@ This app doesn't seem to have any bugs for now. If you happen to come across one
 
 MIT License
 
-Copyright (c) 2019 Michael Kipchumba
+Copyright (c) 2019 Dan
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
